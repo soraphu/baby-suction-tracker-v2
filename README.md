@@ -35,3 +35,34 @@ This project was built to revolutionize the way infant suction development is mo
 
 ### System Architecture Diagram
 The system is built on **Clean Architecture** principles, strictly decoupling responsibilities into Presentation, Domain, and Data layers to ensure testability and robust maintenance.
+
+```mermaid
+flowchart TD
+    Start([Start]) --> AddPatient[Add Infant Patient Profile]
+    AddPatient --> ConnectBLE[Connect via Bluetooth to Suction Device]
+    ConnectBLE --> SetTimer[Set Test Duration Time]
+    
+    SetTimer --> CheckConnection{Is Connected to\nSuction Device?}
+    CheckConnection -- False --> ConnectBLE
+    
+    CheckConnection -- True --> SendStart[Send 'Start' Command\nto Suction Device]
+    SendStart --> StartTimer[Start Timer Clock]
+    
+    StartTimer --> ReceiveData[Receive Suction Pressure Data\nfrom Suction Device]
+    ReceiveData --> DisplayRealtime[/Display Current Suction Value\n& Remaining Time/]
+    
+    DisplayRealtime --> CacheData[Cache Current Suction Value\n& Corresponding Timestamp]
+    CacheData --> CheckTimer{Has the Set Time\nExpired?}
+    
+    CheckTimer -- False --> ReceiveData
+    
+    CheckTimer -- True --> SummarizeResult[Summarize All Measurement Data]
+    SummarizeResult --> DisplaySummary[/Display Measurement\nSummary Results/]
+    
+    DisplaySummary --> CheckSave{Save Test Results\nto History?}
+    
+    CheckSave -- True --> SaveData[Save Test Results\nto Local Database]
+    SaveData --> DisplaySaved[/Display All Saved\nHistorical Results/]
+    DisplaySaved --> End([End])
+    
+    CheckSave -- False --> End
