@@ -1,4 +1,4 @@
-# 👶 Infant Suction Measurement App V2
+# 🍼 Infant Suction Measurement App V2
 
 ### *Real-Time Bio-Feedback & Pediatric Analytics System*
 
@@ -66,3 +66,54 @@ flowchart TD
     DisplaySaved --> End([End])
     
     CheckSave -- False --> End
+```
+
+## 🔬 Project Show Case
+### Home : 
+* Show Signed Babies List
+* Add Edit Delete Baby
+* Search Specific Baby
+  
+![mainPage](/assets/main_page.jpg)
+![addingBaby](/assets/adding_baby.jpg)
+![babyManagement](/assets/baby_expand.jpg)
+
+### Device Finder : 
+* Find Devices
+* Show Founded Devices
+* Connect Device
+
+![foundedDevice](/assets/founded_device.jpg)
+
+### Connected Device :
+* Show Current Device Information
+* Disconnect Device
+
+![connectedDevice](/assets/connected.jpg)
+
+### During Test :
+* Count Down Timer 
+* Show Current Suction Value
+* Finish Test Now
+
+![duringTest](/assets/during_test.jpg)
+
+### Sumarize Suction Test :
+* Process All Value and Sumarize
+* Save the Test
+* Abandon the Test
+
+![sumarizeTest](/assets/sumary_test.jpg)
+
+### Test History
+* Show All Tested History 
+* Sort By Time, Value, Suction Count
+* Compare Multiple Test History
+
+![testHistorySortByTime](/assets/test_history_list-sorttime.jpg)
+![testHistorySortByValue](/assets/test_history_list-sortvalue.jpg)
+![testHistorySortBySuctionCount](/assets/test_history_list-sortcount.jpg)
+![viewTest](/assets/view_single_test_his.jpg)
+![testSelection](/assets/selected_test_history.jpg)
+![compareTest](/assets/compare_test.jpg)
+
